@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/fondo_azul_claro">
+
+    <Button
+        android:id="@+id/btnIniciarSesionUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D3EFF8"
+        android:text="@string/iniciar_sesion_sub"
+        android:textColor="#5AE1ED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042" />
+
+    <Button
+        android:id="@+id/btnCrearSesionUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:backgroundTint="#D3EFF8"
+        android:text="CREAR CUENTA"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/btnIniciarSesionUp"
+        app:layout_constraintStart_toEndOf="@+id/btnIniciarSesionUp"
+        app:layout_constraintTop_toTopOf="@+id/btnIniciarSesionUp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnCrearSesionDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="#D3EFF8"
+        android:text="CREAR CUENTA"
+        android:textColor="@color/azul_boton"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNoCuenta"
+        app:layout_constraintStart_toEndOf="@+id/tvNoCuenta"
+        app:layout_constraintTop_toTopOf="@+id/tvNoCuenta" />
+
+    <Button
+        android:id="@+id/btnOlvidarPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D3EFF8"
+        android:textColor="@color/azul_boton"
+        android:text="@string/olvidar_password_sub"
+        android:padding="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnIniciarSesion"
+        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesion"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion" />
+
+    <ImageView
+        android:id="@+id/imgFilmFilter"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="48dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/btnCrearSesionUp"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesionUp"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesionUp"
+        app:srcCompat="@mipmap/film_filter_foreground" />
+
+    <TextView
+        android:id="@+id/tvNombreApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="36dp"
+        android:textColor="@color/black"
+        android:text="Film filter"
+        app:layout_constraintEnd_toEndOf="@+id/imgFilmFilter"
+        app:layout_constraintStart_toStartOf="@+id/imgFilmFilter"
+        app:layout_constraintTop_toBottomOf="@+id/imgFilmFilter" />
+
+    <TextView
+        android:id="@+id/tvNoCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="¿Todavía no tienes una cuenta?"
+        android:textColor="#777575"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnOlvidarPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesion" />
+
+    <EditText
+        android:id="@+id/etCorreoInicioSesion"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:padding="8dp"
+        android:ems="10"
+        android:textSize="24dp"
+        android:hint="Email"
+        android:gravity="center_vertical"
+        android:drawableStart="@drawable/email_icon_size"
+        android:background="@drawable/estilo_et_inicio_sesion"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/tvNombreApp"
+        app:layout_constraintStart_toStartOf="@+id/tvNombreApp"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreApp" />
+
+    <EditText
+        android:id="@+id/etPasswordInicioSesion"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/estilo_et_inicio_sesion"
+        android:drawableStart="@drawable/key_icon_size"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="Contraseña"
+        android:inputType="textEmailAddress"
+        android:padding="8dp"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/etCorreoInicioSesion"
+        app:layout_constraintStart_toStartOf="@+id/etCorreoInicioSesion"
+        app:layout_constraintTop_toBottomOf="@+id/etCorreoInicioSesion" />
+
+    <Button
+        android:id="@+id/btnIniciarSesion"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/azul_boton"
+        android:text="Iniciar sesión"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/etPasswordInicioSesion"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/etPasswordInicioSesion"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordInicioSesion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
