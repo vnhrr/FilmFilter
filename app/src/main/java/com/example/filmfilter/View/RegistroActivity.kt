@@ -14,6 +14,7 @@ class RegistroActivity : AppCompatActivity() {
 
         val inicioSesionUp = findViewById<Button>(R.id.btnIniciarSesionUpReg)
         val inicioSesionDown = findViewById<Button>(R.id.btnIniciarSesionDownReg)
+        val registrarse = findViewById<Button>(R.id.btnRegistrarseReg)
 
         inicioSesionUp.setOnClickListener{
             val intent = Intent(this, InicioSesionActivity::class.java)
@@ -22,6 +23,11 @@ class RegistroActivity : AppCompatActivity() {
 
         inicioSesionDown.setOnClickListener{
             val intent = Intent(this, InicioSesionActivity::class.java)
+            startActivity(intent)
+        }
+
+        registrarse.setOnClickListener{
+            val intent = Intent(this, PreferenciasActivity::class.java)
             startActivity(intent)
         }
     }

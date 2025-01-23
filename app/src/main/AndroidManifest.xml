@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".View.PasswordActivity"/>
         <activity android:name=".View.RegistroActivity"/>
+        <activity android:name=".View.PreferenciasActivity"/>
     </application>
 
 </manifest>
