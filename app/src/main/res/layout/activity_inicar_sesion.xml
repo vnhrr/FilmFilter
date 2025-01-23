@@ -9,7 +9,7 @@
     android:background="@color/fondo_azul_claro">
 
     <Button
-        android:id="@+id/btnIniciarSesionUp"
+        android:id="@+id/btnIniciarSesionUpIS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#D3EFF8"
@@ -23,20 +23,20 @@
         app:layout_constraintVertical_bias="0.042" />
 
     <Button
-        android:id="@+id/btnCrearSesionUp"
+        android:id="@+id/btnCrearSesionUpIS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:backgroundTint="#D3EFF8"
         android:text="CREAR CUENTA"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/btnIniciarSesionUp"
-        app:layout_constraintStart_toEndOf="@+id/btnIniciarSesionUp"
-        app:layout_constraintTop_toTopOf="@+id/btnIniciarSesionUp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnIniciarSesionUpIS"
+        app:layout_constraintStart_toEndOf="@+id/btnIniciarSesionUpIS"
+        app:layout_constraintTop_toTopOf="@+id/btnIniciarSesionUpIS"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btnCrearSesionDown"
+        android:id="@+id/btnCrearSesionDownIS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -49,16 +49,17 @@
         app:layout_constraintTop_toTopOf="@+id/tvNoCuenta" />
 
     <Button
-        android:id="@+id/btnOlvidarPassword"
+        android:id="@+id/btnOlvidarPasswordIS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#D3EFF8"
-        android:textColor="@color/azul_boton"
-        android:text="@string/olvidar_password_sub"
         android:padding="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnIniciarSesion"
-        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesion"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion" />
+        android:text="@string/olvidar_password_sub"
+        android:textColor="@color/azul_boton"
+        app:layout_constraintEnd_toEndOf="@+id/btnIniciarSesionIS"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesionIS"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesionIS" />
 
     <ImageView
         android:id="@+id/imgFilmFilter"
@@ -66,10 +67,10 @@
         android:layout_height="120dp"
         android:layout_marginTop="48dp"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/btnCrearSesionUp"
+        app:layout_constraintEnd_toEndOf="@+id/btnCrearSesionUpIS"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesionUp"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesionUp"
+        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesionUpIS"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesionUpIS"
         app:srcCompat="@mipmap/film_filter_foreground" />
 
     <TextView
@@ -93,9 +94,9 @@
         android:textColor="#777575"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnOlvidarPassword"
+        app:layout_constraintEnd_toEndOf="@+id/btnOlvidarPasswordIS"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesion" />
+        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesionIS" />
 
     <EditText
         android:id="@+id/etCorreoInicioSesion"
@@ -132,7 +133,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etCorreoInicioSesion" />
 
     <Button
-        android:id="@+id/btnIniciarSesion"
+        android:id="@+id/btnIniciarSesionIS"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

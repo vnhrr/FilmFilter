@@ -9,7 +9,7 @@
     android:background="@color/fondo_azul_claro">
 
     <Button
-        android:id="@+id/btnIniciarSesionUp"
+        android:id="@+id/btnIniciarSesionUpReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#D3EFF8"
@@ -23,16 +23,16 @@
         app:layout_constraintVertical_bias="0.042" />
 
     <Button
-        android:id="@+id/btnCrearSesionUp"
+        android:id="@+id/btnCrearSesionUpReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:backgroundTint="#D3EFF8"
         android:text="@string/crear_cuenta_sub"
         android:textColor="#5AE1ED"
-        app:layout_constraintBottom_toBottomOf="@+id/btnIniciarSesionUp"
-        app:layout_constraintStart_toEndOf="@+id/btnIniciarSesionUp"
-        app:layout_constraintTop_toTopOf="@+id/btnIniciarSesionUp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnIniciarSesionUpReg"
+        app:layout_constraintStart_toEndOf="@+id/btnIniciarSesionUpReg"
+        app:layout_constraintTop_toTopOf="@+id/btnIniciarSesionUpReg"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -41,10 +41,10 @@
         android:layout_height="120dp"
         android:layout_marginTop="28dp"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/btnCrearSesionUp"
+        app:layout_constraintEnd_toEndOf="@+id/btnCrearSesionUpReg"
         app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesionUp"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesionUp"
+        app:layout_constraintStart_toStartOf="@+id/btnIniciarSesionUpReg"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesionUpReg"
         app:srcCompat="@mipmap/film_filter_foreground" />
 
     <TextView
@@ -134,7 +134,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etPaswword1Registro" />
 
     <Button
-        android:id="@+id/btnRegistrarse"
+        android:id="@+id/btnRegistrarseReg"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -153,13 +153,13 @@
         android:text="¿Ya tienes una cuenta?"
         android:textColor="#777575"
         android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnRegistrarse"
+        app:layout_constraintEnd_toEndOf="@+id/btnRegistrarseReg"
         app:layout_constraintHorizontal_bias="0.296"
-        app:layout_constraintStart_toStartOf="@+id/btnRegistrarse"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarse" />
+        app:layout_constraintStart_toStartOf="@+id/btnRegistrarseReg"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarseReg" />
 
     <Button
-        android:id="@+id/btnIniciarSesionDown"
+        android:id="@+id/btnIniciarSesionDownReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
