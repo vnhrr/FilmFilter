@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_azul_oscuro"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/etBusqueda"
+        android:layout_width="352dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/estilo_et_busqueda"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        android:drawableEnd="@drawable/search"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listViewPelis"
+        android:layout_width="411dp"
+        android:layout_height="543dp"
+        android:layout_marginBottom="92dp"
+        android:choiceMode="multipleChoice"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBusqueda"
+        app:layout_constraintVertical_bias="0.928" />
+
+    <ImageButton
+        android:id="@+id/imageButtonHome"
+        android:layout_width="91dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#013F53"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/home" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSearch"
+        android:layout_width="91dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonHome"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonHome"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonHome"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/search"
+        android:backgroundTint="#F12F2F"
+        />
+
+    <ImageButton
+        android:id="@+id/imageButtonProfile"
+        android:layout_width="91dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonSearch"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonSearch"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonSearch"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/account_icon_size"
+        android:backgroundTint="#013F53"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

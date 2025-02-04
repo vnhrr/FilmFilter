@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "973480162823",
+    "project_id": "filmfilter",
+    "storage_bucket": "filmfilter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973480162823:android:82bf66a39b0f5151025ca2",
+        "android_client_info": {
+          "package_name": "com.example.filmfilter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOWtwrJ0N-IxBdN760-gXPlFQoj6Bzs6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

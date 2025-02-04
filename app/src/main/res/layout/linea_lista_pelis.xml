@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_azul_oscuro">
+
+    <TextView
+        android:id="@+id/tvTituloPeli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Titulo"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/tvDirector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Director"
+        app:layout_constraintStart_toStartOf="@+id/tvTituloPeli"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloPeli"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/tvGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Genero"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/tvDirector"
+        app:layout_constraintTop_toBottomOf="@+id/tvDirector" />
+
+    <CheckBox
+        android:id="@+id/cbVisto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:button="@drawable/estados_cb_visto"
+        app:layout_constraintBottom_toBottomOf="@+id/tvGenero"
+        app:layout_constraintStart_toEndOf="@+id/tvDirector"
+        app:layout_constraintTop_toTopOf="@+id/tvTituloPeli" />
+
+    <CheckBox
+        android:id="@+id/cbFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:button="@drawable/estados_cb_fav"
+        app:layout_constraintBottom_toBottomOf="@+id/cbVisto"
+        app:layout_constraintStart_toEndOf="@+id/cbVisto"
+        app:layout_constraintTop_toTopOf="@+id/cbVisto" />
+
+    <ImageView
+        android:id="@+id/ivCartelPeli"
+        android:layout_width="75dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cbFav"
+        app:layout_constraintStart_toEndOf="@+id/cbFav"
+        app:layout_constraintTop_toTopOf="@+id/cbFav"
+        tools:srcCompat="@tools:sample/avatars" />
+</androidx.constraintlayout.widget.ConstraintLayout>

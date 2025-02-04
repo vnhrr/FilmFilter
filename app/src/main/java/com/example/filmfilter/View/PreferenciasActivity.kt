@@ -1,11 +1,13 @@
 package com.example.filmfilter.View
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filmfilter.R
@@ -44,11 +46,17 @@ class PreferenciasActivity : AppCompatActivity() {
                 (num4.background as? ColorDrawable)?.color == colorActual -> {
                     num4.setBackgroundColor(Color.WHITE)
                     num3.setBackgroundColor(colorActual)
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerFragmentInfo_Lista, DirectoresFragment())
+                        .commit()
                 }
 
                 (num3.background as? ColorDrawable)?.color == colorActual -> {
                     num3.setBackgroundColor(Color.WHITE)
                     num2.setBackgroundColor(colorActual)
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerFragmentInfo_Lista, GenerosFragment())
+                        .commit()
                 }
 
                 (num2.background as? ColorDrawable)?.color == colorActual -> {
@@ -56,6 +64,10 @@ class PreferenciasActivity : AppCompatActivity() {
                     num1.setBackgroundColor(colorActual)
                     volver.isEnabled = false
                     volver.visibility = View.INVISIBLE
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerFragmentInfo_Lista, InfoFragment())
+                        .commit()
+
                 }
                 else -> {
 
@@ -70,21 +82,36 @@ class PreferenciasActivity : AppCompatActivity() {
             when {
                 (num1.background as? ColorDrawable)?.color == colorActual -> {
                     num1.setBackgroundColor(colorInactivo)
+                    num1.setTextColor(Color.BLACK)
                     num2.setBackgroundColor(colorActual)
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerFragmentInfo_Lista, GenerosFragment())
+                        .commit()
                 }
 
                 (num2.background as? ColorDrawable)?.color == colorActual -> {
                     num2.setBackgroundColor(colorInactivo)
+                    num2.setTextColor(Color.BLACK)
                     num3.setBackgroundColor(colorActual)
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerFragmentInfo_Lista, DirectoresFragment())
+                        .commit()
                 }
 
                 (num3.background as? ColorDrawable)?.color == colorActual -> {
                     num3.setBackgroundColor(colorInactivo)
+                    num3.setTextColor(Color.BLACK)
                     num4.setBackgroundColor(colorActual)
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerFragmentInfo_Lista, ActoresFragment())
+                        .commit()
                 }
 
                 (num4.background as? ColorDrawable)?.color == colorActual -> {
                     num4.setBackgroundColor(colorInactivo)
+                    num4.setTextColor(Color.BLACK)
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
                 }
 
                 else -> {
@@ -101,23 +128,34 @@ class PreferenciasActivity : AppCompatActivity() {
                     num1.setBackgroundColor(colorInactivo)
                     num1.setTextColor(Color.BLACK)
                     num2.setBackgroundColor(colorActual)
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerFragmentInfo_Lista, GenerosFragment())
+                        .commit()
                 }
 
                 (num2.background as? ColorDrawable)?.color == colorActual -> {
                     num2.setBackgroundColor(colorInactivo)
                     num2.setTextColor(Color.BLACK)
                     num3.setBackgroundColor(colorActual)
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerFragmentInfo_Lista, DirectoresFragment())
+                        .commit()
                 }
 
                 (num3.background as? ColorDrawable)?.color == colorActual -> {
                     num3.setBackgroundColor(colorInactivo)
                     num3.setTextColor(Color.BLACK)
                     num4.setBackgroundColor(colorActual)
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerFragmentInfo_Lista, ActoresFragment())
+                        .commit()
                 }
 
                 (num4.background as? ColorDrawable)?.color == colorActual -> {
                     num4.setBackgroundColor(colorInactivo)
                     num4.setTextColor(Color.BLACK)
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
                 }
 
                 else -> {
