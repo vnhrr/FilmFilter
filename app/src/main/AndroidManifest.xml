@@ -28,6 +28,7 @@
         <activity android:name=".View.PreferenciasActivity"/>
         <activity android:name=".View.DetallesPeliActivity"/>
         <activity android:name=".View.SearchActivity"/>
+        <activity android:name=".View.EditarPreferenciasActivity"/>
     </application>
 
 

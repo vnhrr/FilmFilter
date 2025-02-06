@@ -4,12 +4,14 @@ import ApiService
 import Movie
 import MovieResponse
 import PersonResponse
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
@@ -46,31 +48,58 @@ class HomeActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         filtro.adapter = adapter
 
-        // Detectar cuando el usuario selecciona una opción
+        val sharedPreferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE)
+
         filtro.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val opcionSeleccionada = opciones[position]
 
                 when (opcionSeleccionada) {
                     "Actores" -> {
-                        val actores = listOf("Will Smith") // Puedes cambiar esto para ingresar nombres dinámicos
+                        val actores = sharedPreferences.getStringSet("Actores", emptySet())?.toList() ?: emptyList()
                         fetchMoviesByActors(actores)
                     }
                     "Directores" -> {
-                        val directores = listOf("Quentin Tarantino") // Cambia según necesidad
+                        val directores = sharedPreferences.getStringSet("Directores", emptySet())?.toList() ?: emptyList()
                         fetchMoviesByDirectors(directores)
                     }
                     "Géneros" -> {
-                        val generos = listOf("Acción") // Cambia según necesidad
-                        fetchMoviesByGenres(generos)
+                        // Recuperar los géneros en el momento en que se selecciona el filtro
+                        val generos = sharedPreferences.getStringSet("Géneros", emptySet())?.toList() ?: emptyList()
+                        Log.d("DEBUG_RECUPERAR", "Géneros recuperados al cambiar filtro en HomeActivity: $generos")
+
+                        if (generos.isNotEmpty()) {
+                            fetchMoviesByGenres(generos)
+                        } else {
+                            Toast.makeText(this@HomeActivity, "No hay géneros seleccionados", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                // No hacer nada si no se selecciona nada
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
+
+        val editPreferencesButton = findViewById<ImageButton>(R.id.imageButtonProfile)
+        editPreferencesButton.setOnClickListener {
+            val intent = Intent(this, EditarPreferenciasActivity::class.java)
+            startActivity(intent)
+        }
+
+        val handler = android.os.Handler()
+        handler.postDelayed({
+            val sharedPreferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE)
+            val generosGuardados = sharedPreferences.getStringSet("Géneros", emptySet()) ?: emptySet()
+
+            Log.d("DEBUG_RECUPERAR_DELAY", "Géneros recuperados tras delay en HomeActivity: $generosGuardados")
+
+            if (generosGuardados.isNotEmpty()) {
+                fetchMoviesByGenres(generosGuardados.toList())
+            } else {
+                Toast.makeText(this, "No hay géneros seleccionados", Toast.LENGTH_SHORT).show()
+            }
+        }, 500) // Esperar 500ms antes de leer los datos
+
 
         // Inicializar RecyclerViews
         recyclerView1 = findViewById(R.id.recyclerView1)
@@ -229,36 +258,55 @@ class HomeActivity : AppCompatActivity() {
     //----------------------------------------------------------------------------------------------
     private fun fetchMoviesByGenres(genreNames: List<String>) {
         val apiService = ApiClient.retrofit.create(ApiService::class.java)
-        val genreIds = mutableListOf<Int>()
 
-        // Obtener la lista de géneros disponibles
+        // Mapeo manual de nombres incorrectos a nombres correctos
+        val genreFixMap = mapOf(
+            "Acción" to "Acción",
+            "Ciencia ficción" to "Ciencia ficción",
+            "Comedia" to "Comedia",  // No necesita conversión
+            "Drama" to "Drama",      // No necesita conversión
+            "Terror" to "Terror"     // No necesita conversión
+        )
+
+        val correctedGenreNames = genreNames.map { genreFixMap[it] ?: it }
+
+        Log.d("DEBUG_GENRES", "Géneros seleccionados para API: $genreNames")
+
         apiService.getGenres(apiKey = "aeb34317761b06ce97f327fe28f338b0")
             .enqueue(object : Callback<GenreResponse> {
                 override fun onResponse(call: Call<GenreResponse>, response: Response<GenreResponse>) {
                     if (response.isSuccessful) {
                         val genres = response.body()?.genres
+                        val genreIds = mutableListOf<Int>()
 
-                        // Buscar los IDs de los géneros solicitados
-                        genreNames.forEach { genreName ->
-                            genres?.find { it.name.equals(genreName, ignoreCase = true) }?.let {
-                                genreIds.add(it.id)
+                        Log.d("DEBUG_API_GENRES", "Géneros obtenidos de la API: ${genres?.map { it.name }}")
+
+                        // Ajustar nombres incorrectos antes de la comparación
+                        genres?.forEach { genre ->
+                            val fixedName = genreFixMap[genre.name] ?: genre.name
+                            if (genreNames.contains(fixedName)) {
+                                genreIds.add(genre.id)
                             }
                         }
 
-                        // Si encontramos géneros, hacemos la consulta
+                        Log.d("DEBUG_GEN_IDS", "IDs de géneros encontrados: $genreIds")
+
                         if (genreIds.isNotEmpty()) {
                             getMoviesByGenres(genreIds)
                         } else {
                             Toast.makeText(this@HomeActivity, "No se encontraron géneros", Toast.LENGTH_SHORT).show()
                         }
+                    } else {
+                        Log.e("ERROR_API", "Error en la respuesta de la API al obtener géneros")
                     }
                 }
 
                 override fun onFailure(call: Call<GenreResponse>, t: Throwable) {
-                    Log.e("API_ERROR", "Error al obtener géneros: ${t.message}")
+                    Log.e("ERROR_API", "Fallo en la API al obtener géneros: ${t.message}")
                 }
             })
     }
+
 
     // Obtener películas por género
     private fun getMoviesByGenres(genreIds: List<Int>) {
