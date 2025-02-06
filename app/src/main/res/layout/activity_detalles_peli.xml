@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/fondo_azul_oscuro"> <!-- Fondo oscuro similar -->
+
+    <!-- Imagen de la película -->
+    <Button
+        android:id="@+id/btBack"
+        android:layout_width="131dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside"
+        android:text="Volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/moviePoster"
+        android:layout_width="380dp"
+        android:layout_height="242dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Título de la película -->
+    <TextView
+        android:id="@+id/movieTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Título de la Película"
+        android:textSize="22sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/moviePoster"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Contenedor de los detalles -->
+    <LinearLayout
+        android:id="@+id/detailsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/movieTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Género -->
+        <TextView
+            android:id="@+id/movieGenre"
+            style="@style/DetailTextStyle"
+            android:text="Género: Acción, Ciencia ficción postapocalíptica" />
+
+        <!-- Año de lanzamiento -->
+        <TextView
+            android:id="@+id/movieYear"
+            style="@style/DetailTextStyle"
+            android:text="Año de lanzamiento: 2015" />
+
+        <!-- Director -->
+        <TextView
+            android:id="@+id/movieDirector"
+            style="@style/DetailTextStyle"
+            android:text="Director: George Miller" />
+
+        <!-- Actores -->
+        <TextView
+            android:id="@+id/movieActors"
+            style="@style/DetailTextStyle"
+            android:text="Actores: Tom Hardy, Charlize Theron, Nicholas Hoult, Hugh Keays-Byrne, Zoë Kravitz, Rosie Huntington-Whiteley, Riley Keough, Abbey Lee, Courtney Eaton." />
+
+        <!-- Sinopsis -->
+        <TextView
+            android:id="@+id/movieSynopsis"
+            style="@style/DetailTextStyle"
+            android:text="Una intensa película de acción postapocalíptica donde Max y Furiosa luchan por la libertad en un mundo desértico gobernado por tiranos, repleto de persecuciones épicas y adrenalina pura." />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

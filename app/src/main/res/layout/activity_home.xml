@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/fondo_azul_oscuro"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -22,25 +23,75 @@
         android:id="@+id/tvParati"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="128dp"
         android:text="Para ti: "
         android:textColor="@color/white"
         android:textSize="32dp"
         app:layout_constraintEnd_toStartOf="@+id/buttonVerFav"
-        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonVerFav" />
 
-    <FrameLayout
-        android:id="@+id/frameLayoutPelis"
-        android:layout_width="match_parent"
-        android:layout_height="534dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <LinearLayout
+        android:id="@+id/primeraLista"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="54dp"
+        android:layout_width="414dp"
+        android:layout_height="301dp"
+        android:orientation="vertical"
+        android:padding="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvParati">
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/tit_primeraLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black"
+            android:text="Películas"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/SegundaLista"
+        android:layout_width="412dp"
+        android:layout_height="275dp"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/primeraLista">
+
+        <TextView
+            android:id="@+id/tit_segundaLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black"
+            android:text="Películas"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal" />
+
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/imageButtonHome"
@@ -77,4 +128,16 @@
         app:srcCompat="@drawable/account_icon_size"
         android:backgroundTint="#013F53"
         />
+
+    <Spinner
+        android:id="@+id/spinnerFiltro"
+        android:layout_width="146dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="@+id/tvParati"
+        app:layout_constraintStart_toEndOf="@+id/tvParati"
+        app:layout_constraintTop_toTopOf="@+id/tvParati"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,25 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/moviePoster"
+        android:layout_width="120dp"
+        android:layout_height="180dp"
+        android:scaleType="fitCenter"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/movieTitle"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:maxLines="2"/>
+</LinearLayout>
