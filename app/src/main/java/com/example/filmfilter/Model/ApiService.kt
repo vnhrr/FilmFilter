@@ -64,18 +64,30 @@ interface ApiService {
         @Query("language") language: String = "es-ES"
     ): Call<GenreResponse>
 
-    // Obtener las peliculas por genero
     @GET("discover/movie")
     fun getMoviesByGenres(
         @Query("api_key") apiKey: String,
         @Query("with_genres") genreIds: String
     ): Call<MovieResponse>
 
-
+    //----------------------------------------------------------------------------------------------
+    // OBTENER DETALLES DE LA PELICULA
+    //----------------------------------------------------------------------------------------------
     @GET("movie/{movie_id}?append_to_response=credits")
     fun getMovieDetails(
         @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String
     ): Call<MovieDetailsResponse>
+
+    //----------------------------------------------------------------------------------------------
+    // BUSCAR PELICULAS POR NOMBRE
+    //----------------------------------------------------------------------------------------------
+    interface ApiService {
+        @GET("search/movie")
+        fun searchMovie(
+            @Query("query") query: String
+        ): Call<MovieResponse>
+    }
+
 }
 
