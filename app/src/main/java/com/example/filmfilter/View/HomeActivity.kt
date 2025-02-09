@@ -42,6 +42,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val fav = findViewById<Button>(R.id.buttonVerFav)
+        fav.setOnClickListener {
+            val intent = Intent(this, FavoritosActivity::class.java)
+            startActivity(intent)
+        }
+
         val filtro = findViewById<Spinner>(R.id.spinnerFiltro)
         val opciones = listOf("Actores", "Directores", "Géneros")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)

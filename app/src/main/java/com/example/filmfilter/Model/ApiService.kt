@@ -89,5 +89,12 @@ interface ApiService {
         ): Call<MovieResponse>
     }
 
+    @GET("search/movie")
+    fun searchMovieByTitle(
+        @Query("query") title: String,
+        @Query("api_key") apiKey: String
+    ): Call<MovieResponse>
+
+
 }
 

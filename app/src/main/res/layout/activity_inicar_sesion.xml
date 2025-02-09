@@ -125,7 +125,7 @@
         android:ems="10"
         android:gravity="center_vertical"
         android:hint="Contraseña"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:padding="8dp"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="@+id/etCorreoInicioSesion"
